@@ -19,11 +19,12 @@ def greeting(name):
 # 4. Create a function called `is_odd` that, given a number, will
 # return true if the number is odd and false if it is not. An odd number is a
 # number which, when divided by 2, has a remainder of 1 or -1.
-def is_odd(number):
-    if (number % 2 == 0):
-        return False
-    elif (number % 2 != 0):
+import math
+def is_odd (number):
+    if number % 2 == 1 or number %2 == -1:
         return True
+    else:
+        return not True
 
 
 # ------------------------------------------------------------------------------

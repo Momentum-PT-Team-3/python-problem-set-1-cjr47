@@ -4,55 +4,55 @@ given_name = 'Addison'
 # ------------------------------------------------------------------------------
 # 2. You have 20 candies that you must divide equally among 6 people. How many candies will be left over?
 # Set variables for `candies`, `people`, `left_over` to make your tests pass.
-candies = '20'
-people = '6'
-left_over = 20 / 6
+candies = 20
+people = 6
+left_over = 20 % 6
 
 # ------------------------------------------------------------------------------
 # 3. Create a function called `greeting` that returns "Hello, <name>!",
 # where <name> is the name given as an argument to the function.
-def greeting():
-    name = input('Whats your name')
-    print('Hello' + name)
+def greeting(name):
+    return 'Hello,' + ' ' + name + '!'
 
 
 # ------------------------------------------------------------------------------
 # 4. Create a function called `is_odd` that, given a number, will
 # return true if the number is odd and false if it is not. An odd number is a
 # number which, when divided by 2, has a remainder of 1 or -1.
-def is_odd():
-    number = input('Enter a whole number')
-    remainder = number % 2
-    if (remainder == 0):
-        print('False')
-    else:
-        print('True')
+def is_odd(number):
+    if (number % 2 == 0):
+        return False
+    elif (number % 2 != 0):
+        return True
 
 
 # ------------------------------------------------------------------------------
 # 5. Create a function called `is_even` that, given a number, will
 # return true if the number is even and false if it is not. An even number is a
 # number which, when divided by 2, has a remainder of 0.
-def is_even():
-    number = input('Enter a whole number')
+def is_even(number):
     remainder = number % 2
     if (remainder == 0):
-        print('True')
+        return True
     else:
-        print('False')
+        return not True
 
 
 # ------------------------------------------------------------------------------
 # 6. Create a function called `fahrenheit_to_celsius` that takes a
 # Fahrenheit temperature as an argument and returns the
 # temperature in Celsius.
-
+def fahrenheit_to_celsius(temp):
+    celsius = (temp -32) * 5/9
+    return celsius
 
 # ------------------------------------------------------------------------------
 # 7. Create a function called `celsius_to_fahrenheit` that takes a
 # Celsius temperature as an argument and returns the
 # temperature in Fahrenheit.
-
+def celsius_to_fahrenheit(temp):
+    fahrenheit = (temp * 9/5) + 32
+    return fahrenheit
 
 # ------------------------------------------------------------------------------
 # 8. Create a function called `fahrenheit_to_kelvin` that takes a
@@ -61,12 +61,19 @@ def is_even():
 # fahrenheit_to_celsius function.
 # Absolute zero (0 K) is equivalent to −273.15 C.
 # 1 degree Kelvin equals 1 degree Celsius.
-
+def fahrenheit_to_kelvin(temp):
+    kelvin = (temp - 32) * 5/9 + 273.15
+    return kelvin
 
 # ------------------------------------------------------------------------------
 # 9. Create a function called `lesser` that takes two numbers as
 # arguments and returns the lesser of them. This function should
 # use an if/else statement.
+def lesser(number_a, number_b):
+    if (number_a < number_b):
+        return number_a
+    else:
+        return number_b
 
 
 # ------------------------------------------------------------------------------
@@ -81,7 +88,21 @@ def is_even():
 # eo - Saluton, <name>!
 #
 # If any other language code is used, return nothing.
-
+def multigreeting(name, lang):  
+#    lang = {'en': 'Hello, ',
+#            'es': '¡Hola, ',
+#            'fr': 'Bonjour, ',
+#            'eo': 'Saluton, '}
+    if (lang == 'en'):
+        return 'Hello, ' + name + '!'
+    elif (lang == 'es'):
+        return '¡Hola, ' + name + '!'
+    elif (lang == 'fr'):
+        return 'Bonjour, ' + name + '!'
+    elif (lang == 'eo'):
+        return 'Saluton, ' + name +'!'
+    else:
+        pass
 
 # ------------------------------------------------------------------------------
 # 11. The greatest common divisor (https://en.wikipedia.org/wiki/Greatest_common_divisor)
@@ -110,3 +131,23 @@ def is_even():
 
 # Write a function called `gcd` that takes two arguments and returns the greatest
 # common divisor using the instructions above.
+def gcd(a,b):
+    if a == b:
+        return a
+    elif a == 0:
+        return b
+    elif b == 0:
+        return a
+
+    elif a % 2 == 0:
+        if b %2 == 0:
+            return 2*gcd(a >> 1, b >> 1)
+        else:
+            return gcd(a >> 1, b)
+    elif a %2 != 0:
+        if b %2 == 0:
+            return gcd(u, v >>1)
+        elif a > b and b %2 != 0:
+            return gcd((a-b) >> 1, b)
+        else:
+            return gcd((b-a) >> 1, a)
